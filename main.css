@@ -9,6 +9,61 @@
   display: none;
 }
 
-ul {
-  list-style: none;
+body {
+  background-color: black;
+  font-family: "Press Start 2P";
+  line-height: 150%;
+  padding: 20px;
+}
+
+h1 {
+  color: #00ff00;
+}
+section {
+  color: #00ff00;
+}
+
+form {
+  color: #00ff00;
+}
+
+fieldset {
+  border: 2px solid #00ff00;
+  margin-bottom: 5px;
+}
+button {
+  background-color: #00ff00;
+  color: black;
+  border: none;
+  font-family: "Press Start 2P";
+  font-size: 16px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #00fa9a;
+}
+
+input {
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  float: left;
+}
+
+label {
+  margin-left: 30px;
+  display: block;
+}
+
+h1 {
+  font-size: 25px;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: normal;
 }

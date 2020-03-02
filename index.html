@@ -3,7 +3,7 @@
   <head>
     <title>Questions</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="main.css" />
   </head>
 
@@ -13,7 +13,7 @@
     </header>
     <main>
       <section class="start-screen">
-      <p>
+      <p >
       Welcome to the Breathing Compressed Gas at Depth quiz. This quiz tests
       your knowledge of the effects on the human body of breathing compressed
       gas at depth. When you are ready to begin the quiz, click Start.
@@ -23,7 +23,7 @@
 
       <section class="question-screen">
         <h2 id='question-text'>question goes here</h2>
-      <form>
+      <form >
         <fieldset>
           <!--<legend id="first-question">the question here</legend>-->
           
@@ -48,20 +48,19 @@
       </form>
     </section>
 
-      <section class="feedback">
-     <p class="correct">Your answer is correct.</p>
-     <p class="incorrect">Your answer is incorrect.</p>
+    <section class="feedback" class="green-text">
+     <p class="correct" >Your answer is correct.</p>
+     <p class="incorrect" >Your answer is incorrect.</p>
     <button class="next">Next</button>
       </section>
-    <section class="quiz-status">
-      
-        <p>Question Number: 1/8</p>
-        <p>Score: 0/8</p>
+    <section class="quiz-status" class="green-text">
+      <p class="js-quiz-status" ></p>
+      <p class="js-running-score" ></p>
     </section>
 
-    <section class="results">
-      <h2>Your results.</h2>
-      <p>Score:0/8</p>
+    <section class="results" class="green-text">
+      <h2 class="final-score" ></h2>
+      
       <button class="restart">Restart</button>
     </section>
 
@@ -69,7 +68,7 @@
 
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="store.js"></script>
+    
     <script src="index.js"></script>
   </body>
 </html>

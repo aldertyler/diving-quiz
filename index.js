@@ -11,9 +11,9 @@ let questions = [
   {
     title: `Dalton's Law can be paraphrased as:`,
     answers: [
-      "The total pressure of a mixture of gases equals the sum of the partial pressures.",
-      "The total pressure of the water surrounding a diver.",
-      "The percentage of nitrogen that causes decompression sickness.",
+      "The total pressure of a mixture of gases equals the sum of the partial pressures",
+      "The total pressure of the water surrounding a diver",
+      "The percentage of nitrogen that causes decompression sickness",
       "The pressure of the water plus 1 bar"
     ],
     correct: 0
@@ -21,7 +21,7 @@ let questions = [
   {
     title: "The major, and most common, symptom of decompression sickness is:",
     answers: [
-      "Respiratory failure.",
+      "Respiratory failure",
       "Joint pain",
       "A feeling of euphoria",
       "Puffiness in the neck and shoulder areas"
@@ -42,8 +42,8 @@ let questions = [
   {
     title: "Diving at altitude or flying after diving:",
     answers: [
-      "Allows the diver to ignore the no-decompression limits.",
-      "Requires special diving computer functions, altitude tables and/or refraining from flying for at least 24 hours after the completion of a dive",
+      "Allows the diver to ignore the no-decompression limits",
+      "Requires special diving computer functions, altitude tables and/or refraining from flying for at least 24 hours",
       "Allows the diver to spend a greater amount of time at depth without exceeding the no decompression limits",
       "Does not require any special considerations for the diver"
     ],
@@ -64,7 +64,7 @@ let questions = [
       "Which of the following overexpansion injuries can be characterized by chest pain, breathing difficulties, weakness, and cyanosis of the lips and nail beds?",
     answers: [
       "Rupture of the eardrum",
-      "bends",
+      "Bends",
       "Mediastinal emphysema and pneumothorax",
       "Subcutaneous emphysema"
     ],
@@ -111,13 +111,7 @@ $(".next").click(function(e) {
 
 $(".restart").click(function(e) {
   e.preventDefault();
-  score = 0;
-  currentQuestion = 0;
-  $(".start-screen").show();
-  $(".question-screen").hide();
-  $(".quiz-status").hide();
-  $(".feedback").hide();
-  $(".results").hide();
+  location.reload();
 });
 
 function showQuestion() {
@@ -126,39 +120,51 @@ function showQuestion() {
   $(".question-screen form fieldset").html("");
   for (let i = 0; i < question.answers.length; i++) {
     $(".question-screen form fieldset").append(`
-        <div>
-            <input id="${i}" type="radio" name="radio" value="${i}" />
+        <div class="container">
+            <input class="radio" id="${i}" type="radio" name="radio" value="${i}" />
             <label>${question.answers[i]}</label>
+            <span class="checkmark"></span>
         </div>       
     `);
   }
+  updateProgress();
 }
 
 function checkAnswer() {
   let question = questions[currentQuestion];
   let selectedAnswer = $("input[name=radio]:checked").val();
   if (selectedAnswer == question.correct) {
+    score++;
     $(".question-screen").hide();
     $(".feedback").show();
     $(".correct").show();
     $(".incorrect").hide();
-    score++;
   } else {
     $(".incorrect").text(
       `That is incorrect. The correct answer is: ${
         question.answers[question.correct]
-      }`
+      }.`
     );
     $(".question-screen").hide();
     $(".feedback").show();
     $(".incorrect").show();
     $(".correct").hide();
   }
+  updateProgress();
   currentQuestion++;
   if (currentQuestion >= questions.length) {
-    showResults();
+    updateResults();
+    $(".next").hide();
+    $(".quiz-status").hide();
+    $(".results").show();
   }
 }
 
-function updateProgress() {}
-function showResults() {}
+function updateProgress() {
+  $(".js-quiz-status").text(`Question Number: ${currentQuestion + 1}/8`);
+  $(".js-running-score").text(`Score: ${score}/8`);
+}
+
+function updateResults() {
+  $(".final-score").text(`Final Score: ${score}/8`);
+}
