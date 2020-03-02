@@ -1,3 +1,14 @@
 * {
   box-sizing: border-box;
 }
+
+.question-screen,
+.feedback,
+.quiz-status,
+.results {
+  display: none;
+}
+
+ul {
+  list-style: none;
+}
